@@ -8,9 +8,9 @@
 import UIKit
 
 class HeroHeaderUiView: UIView {
-
+    
     private let downloadButton: UIButton = {
-       let downloadButton = UIButton()
+        let downloadButton = UIButton()
         downloadButton.setTitle("Download", for: .normal)
         downloadButton.layer.borderColor = UIColor.white.cgColor
         downloadButton.layer.cornerRadius = 5
@@ -24,13 +24,13 @@ class HeroHeaderUiView: UIView {
         playButton.layer.borderColor = UIColor.white.cgColor
         playButton.layer.borderWidth = 1.0
         playButton.layer.cornerRadius = 5
-
+        
         // that line to didnt make bytton auto sizing itself.
         playButton.translatesAutoresizingMaskIntoConstraints = false
         return playButton
     }()
     private let heroImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "heroImage")
@@ -79,5 +79,5 @@ class HeroHeaderUiView: UIView {
         NSLayoutConstraint.activate(playButtonConstrains)
         NSLayoutConstraint.activate(downloadButtonConstrains)
     }
-
+    
 }
