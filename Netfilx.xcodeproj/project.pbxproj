@@ -17,6 +17,7 @@
 		EA545A7A28402FAF00223D61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A7928402FAF00223D61 /* SearchViewController.swift */; };
 		EA545A7C28402FBB00223D61 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A7B28402FBB00223D61 /* DownloadsViewController.swift */; };
 		EA545A83284036E500223D61 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */; };
+		EAD9035F284103D10003B19E /* HeroHeaderUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EA545A7928402FAF00223D61 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EA545A7B28402FBB00223D61 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */,
+				EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				EA545A83284036E500223D61 /* CollectionViewTableViewCell.swift in Sources */,
 				EA545A7C28402FBB00223D61 /* DownloadsViewController.swift in Sources */,
 				EA545A6128402A7E00223D61 /* AppDelegate.swift in Sources */,
+				EAD9035F284103D10003B19E /* HeroHeaderUiView.swift in Sources */,
 				EA545A6328402A7E00223D61 /* SceneDelegate.swift in Sources */,
 				EA545A7828402FA600223D61 /* UpcomingViewController.swift in Sources */,
 				EA545A7628402F9200223D61 /* HomeViewController.swift in Sources */,

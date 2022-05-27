@@ -11,6 +11,7 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     //MARK: - vars & outlets
     static let identifier = "CollectionViewTableViewCell"
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -44,9 +45,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate , UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGray
+        cell.backgroundColor = .systemYellow
         return cell
     }
-    
-    
 }
