@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     //MARK: - vars & outlets
-    let sectionTitles: [String] = ["Trending movies" ,"Popular", "Trending tv" , "Upcoming movies","Top rated"]
+    let sectionTitles: [String] = ["Trending movies","Trending tv" ,"Popular" , "Upcoming movies","Top rated"]
     private let HomeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
         configureNavBar()
         let headerView = HeroHeaderUiView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         HomeFeedTable.tableHeaderView = headerView
-        getTrendingMovies()
+        feachData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,14 +47,27 @@ class HomeViewController: UIViewController {
     }
     
     
-    private func getTrendingMovies(){
-        ApiCaller.shared.getTrendingMovies { result in
-            switch result{
-            case .success(let movie):
-                print(movie)
-            case .failure(let error):
-                print(error)
-            }
+    private func feachData(){
+        //        ApiCaller.shared.getTrendingMovies { result in
+        //            switch result{
+        //            case .success(let movie):
+        //                print(movie)
+        //            case .failure(let error):
+        //                print(error)
+        //            }
+        //        }
+        //        ApiCaller.shared.getTrendingTv { _ in
+        //
+        //        }
+        //
+        //        ApiCaller.shared.getUpcomingMovies { _ in
+        //
+        //        }
+        //        ApiCaller.shared.getPopularMovies { _ in
+        //
+        //        }
+        ApiCaller.shared.getTopRatedMovies { _ in
+            
         }
     }
 }
@@ -85,7 +98,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource{
         guard let header = view as? UITableViewHeaderFooterView else{return}
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capatlizeFirstLetter()
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 15, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
     }
     // for tite of each sections

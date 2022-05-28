@@ -19,6 +19,8 @@
 		EA545A83284036E500223D61 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */; };
 		EA93D16928425B6700484904 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16828425B6700484904 /* ApiCaller.swift */; };
 		EA93D16B2842615300484904 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16A2842615300484904 /* Movie.swift */; };
+		EA93D16D2842757300484904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16C2842757300484904 /* Extensions.swift */; };
+		EA93D16F2842786100484904 /* Tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16E2842786100484904 /* Tv.swift */; };
 		EAD9035F284103D10003B19E /* HeroHeaderUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		EA93D16828425B6700484904 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
 		EA93D16A2842615300484904 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		EA93D16C2842757300484904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EA93D16E2842786100484904 /* Tv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tv.swift; sourceTree = "<group>"; };
 		EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				EA93D16A2842615300484904 /* Movie.swift */,
+				EA93D16E2842786100484904 /* Tv.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		EA545A802840369800223D61 /* Recources */ = {
 			isa = PBXGroup;
 			children = (
+				EA93D16C2842757300484904 /* Extensions.swift */,
 			);
 			path = Recources;
 			sourceTree = "<group>";
@@ -213,9 +219,11 @@
 				EA545A6128402A7E00223D61 /* AppDelegate.swift in Sources */,
 				EAD9035F284103D10003B19E /* HeroHeaderUiView.swift in Sources */,
 				EA545A6328402A7E00223D61 /* SceneDelegate.swift in Sources */,
+				EA93D16D2842757300484904 /* Extensions.swift in Sources */,
 				EA545A7828402FA600223D61 /* UpcomingViewController.swift in Sources */,
 				EA545A7628402F9200223D61 /* HomeViewController.swift in Sources */,
 				EA93D16B2842615300484904 /* Movie.swift in Sources */,
+				EA93D16F2842786100484904 /* Tv.swift in Sources */,
 				EA93D16928425B6700484904 /* ApiCaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
