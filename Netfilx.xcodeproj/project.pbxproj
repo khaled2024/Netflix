@@ -20,6 +20,8 @@
 		EA7822BF2843A31F003629C5 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7822BE2843A31F003629C5 /* TitleCollectionViewCell.swift */; };
 		EA7822C22843A493003629C5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EA7822C12843A493003629C5 /* SDWebImage */; };
 		EA7822C42843A493003629C5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EA7822C32843A493003629C5 /* SDWebImageMapKit */; };
+		EA7822C62843C06D003629C5 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7822C52843C06D003629C5 /* UpcomingTableViewCell.swift */; };
+		EA7822C82843C47E003629C5 /* UpcomingTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7822C72843C47E003629C5 /* UpcomingTitle.swift */; };
 		EA93D16928425B6700484904 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16828425B6700484904 /* ApiCaller.swift */; };
 		EA93D16B2842615300484904 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16A2842615300484904 /* Title.swift */; };
 		EA93D16D2842757300484904 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93D16C2842757300484904 /* Extensions.swift */; };
@@ -40,6 +42,8 @@
 		EA545A7B28402FBB00223D61 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		EA7822BE2843A31F003629C5 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA7822C52843C06D003629C5 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
+		EA7822C72843C47E003629C5 /* UpcomingTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTitle.swift; sourceTree = "<group>"; };
 		EA93D16828425B6700484904 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
 		EA93D16A2842615300484904 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		EA93D16C2842757300484904 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		EA545A7E2840365900223D61 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA7822C72843C47E003629C5 /* UpcomingTitle.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				EA545A82284036E500223D61 /* CollectionViewTableViewCell.swift */,
 				EAD9035E284103D10003B19E /* HeroHeaderUiView.swift */,
 				EA7822BE2843A31F003629C5 /* TitleCollectionViewCell.swift */,
+				EA7822C52843C06D003629C5 /* UpcomingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,12 +232,14 @@
 				EA545A7A28402FAF00223D61 /* SearchViewController.swift in Sources */,
 				EA7822BF2843A31F003629C5 /* TitleCollectionViewCell.swift in Sources */,
 				EA545A6528402A7E00223D61 /* MainTabBarViewController.swift in Sources */,
+				EA7822C62843C06D003629C5 /* UpcomingTableViewCell.swift in Sources */,
 				EA545A83284036E500223D61 /* CollectionViewTableViewCell.swift in Sources */,
 				EA545A7C28402FBB00223D61 /* DownloadsViewController.swift in Sources */,
 				EA545A6128402A7E00223D61 /* AppDelegate.swift in Sources */,
 				EAD9035F284103D10003B19E /* HeroHeaderUiView.swift in Sources */,
 				EA545A6328402A7E00223D61 /* SceneDelegate.swift in Sources */,
 				EA93D16D2842757300484904 /* Extensions.swift in Sources */,
+				EA7822C82843C47E003629C5 /* UpcomingTitle.swift in Sources */,
 				EA545A7828402FA600223D61 /* UpcomingViewController.swift in Sources */,
 				EA545A7628402F9200223D61 /* HomeViewController.swift in Sources */,
 				EA93D16B2842615300484904 /* Title.swift in Sources */,
