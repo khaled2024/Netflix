@@ -33,7 +33,7 @@ class HeroHeaderUiView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "heroImage")
+        imageView.image = UIImage(named: "sonicHero")
         return imageView
         
     }()

@@ -6,10 +6,18 @@
 //
 
 import UIKit
-
+enum Sections: Int{
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case UpcomingMovies = 3
+    case TopRated = 4
+    
+}
 class HomeViewController: UIViewController {
     
     //MARK: - vars & outlets
+    var heroPoster: String?
     let sectionTitles: [String] = ["Trending movies","Trending tv" ,"Popular" , "Upcoming movies","Top rated"]
     private let HomeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -26,7 +34,6 @@ class HomeViewController: UIViewController {
         configureNavBar()
         let headerView = HeroHeaderUiView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         HomeFeedTable.tableHeaderView = headerView
-        feachData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,30 +53,6 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
-    
-    private func feachData(){
-        //        ApiCaller.shared.getTrendingMovies { result in
-        //            switch result{
-        //            case .success(let movie):
-        //                print(movie)
-        //            case .failure(let error):
-        //                print(error)
-        //            }
-        //        }
-        //        ApiCaller.shared.getTrendingTv { _ in
-        //
-        //        }
-        //
-        //        ApiCaller.shared.getUpcomingMovies { _ in
-        //
-        //        }
-        //        ApiCaller.shared.getPopularMovies { _ in
-        //
-        //        }
-        ApiCaller.shared.getTopRatedMovies { _ in
-            
-        }
-    }
 }
 
 //MARK: - Exctensions
@@ -83,6 +66,62 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath)as? CollectionViewTableViewCell else{
+            return UITableViewCell()
+        }
+        switch indexPath.section{
+        case Sections.TrendingMovies.rawValue:
+            ApiCaller.shared.getTrendingMovies { result in
+                switch result{
+                case .success(let titles):
+                    cell.configure(with: titles)
+                    self.heroPoster = titles[2].poster_path
+                    print("https://image.tmdb.org/t/p/w500\(self.heroPoster ?? "")")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.TrendingTv.rawValue:
+            ApiCaller.shared.getTrendingTv { result in
+                switch result{
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.Popular.rawValue:
+            ApiCaller.shared.getPopularMovies { result in
+                switch result{
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.UpcomingMovies.rawValue:
+            ApiCaller.shared.getUpcomingMovies { result in
+                switch result{
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.TopRated.rawValue:
+            ApiCaller.shared.getTopRatedMovies { result in
+                switch result{
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        default:
             return UITableViewCell()
         }
         return cell

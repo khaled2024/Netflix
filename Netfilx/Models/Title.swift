@@ -1,15 +1,15 @@
 //
-//  Tv.swift
+//  Movie.swift
 //  Netfilx
 //
 //  Created by KhaleD HuSsien on 28/05/2022.
 //
 
 import Foundation
-struct TrendingTv: Codable {
-    let results: [Tv]
+struct TrendingTitle:Codable {
+    let results: [Title]
 }
-struct Tv: Codable {
+struct Title :Codable {
     let id: Int
     let media_type: String?
     let original_name: String?
