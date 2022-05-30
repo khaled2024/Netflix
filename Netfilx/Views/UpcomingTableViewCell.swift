@@ -22,6 +22,7 @@ class UpcomingTableViewCell: UITableViewCell {
     private let posterImageView: UIImageView = {
         let posterImage = UIImageView()
         posterImage.contentMode = .scaleAspectFill
+        posterImage.clipsToBounds = true
         posterImage.translatesAutoresizingMaskIntoConstraints = false
         return posterImage
     }()

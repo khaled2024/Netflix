@@ -75,7 +75,6 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource{
                 case .success(let titles):
                     cell.configure(with: titles)
                     self.heroPoster = titles[2].poster_path
-                    print("https://image.tmdb.org/t/p/w500\(self.heroPoster ?? "")")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

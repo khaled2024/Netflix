@@ -58,7 +58,7 @@ extension UpcomingViewController: UITableViewDelegate,UITableViewDataSource{
             return UITableViewCell()
         }
         let title = titles[indexPath.row]
-        cell.configure(with: UpcomingTitle(posterUrl:title.poster_path ?? "" , titleName: title.original_name ?? title.original_title ?? "UnKnown name"))
+        cell.configure(with: UpcomingTitle(posterUrl: title.poster_path ?? "" , titleName: title.original_name ?? title.original_title ?? "UnKnown name"))
         return cell
     }
     
