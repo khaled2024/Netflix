@@ -22,7 +22,7 @@ class UpcomingViewController: UIViewController {
         title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
+        navigationController?.navigationBar.tintColor = .white
         view.addSubview(UpcomingTable)
         UpcomingTable.delegate = self
         UpcomingTable.dataSource = self
@@ -41,6 +41,7 @@ class UpcomingViewController: UIViewController {
             switch result{
             case .success(let titles):
                 self.titles = titles
+                print(titles)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -64,6 +65,27 @@ extension UpcomingViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let titleName = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title else {return}
+        ApiCaller.shared.getMovie(with: titleName + "trailer" ) {[weak self] result in
+            switch result{
+            case .success(let video):
+                let title = self?.titles[indexPath.row]
+                guard let titleOverView = title?.overview else{return}
+                let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: video, overTitle: titleOverView)
+                DispatchQueue.main.async {
+                    let vc = TitlePreviewViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                    vc.configure(with: viewModel)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+       
+      
     }
     
 }

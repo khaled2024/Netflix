@@ -53,6 +53,11 @@ class HeroHeaderUiView: UIView {
         fatalError()
     }
     //MARK: - private func
+    public func configure(with model: UpcomingTitle){
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterUrl)")else{return}
+        self.heroImageView.sd_setImage(with: url, completed: nil)
+        
+    }
     private func addGradient(){
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [

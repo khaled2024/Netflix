@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     
     //MARK: - vars & outlets
     var heroPoster: String?
+    private var randomTrendingMovie: Title?
+    private  var headerView: HeroHeaderUiView?
     let sectionTitles: [String] = ["Trending movies","Trending tv" ,"Popular" , "Upcoming movies","Top rated"]
     private let HomeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -32,8 +34,9 @@ class HomeViewController: UIViewController {
         HomeFeedTable.delegate = self
         HomeFeedTable.dataSource = self
         configureNavBar()
-        let headerView = HeroHeaderUiView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+       headerView = HeroHeaderUiView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         HomeFeedTable.tableHeaderView = headerView
+        configureHeaderView()
             }
     
     override func viewDidLayoutSubviews() {
@@ -42,6 +45,18 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - private func
+    private func configureHeaderView(){
+        ApiCaller.shared.getTrendingTv {[weak self] result in
+            switch result{
+            case .success(let titles):
+                let selectedTitle = titles.randomElement()
+                self?.randomTrendingMovie = selectedTitle
+                self?.headerView?.configure(with: UpcomingTitle(posterUrl: selectedTitle?.poster_path ?? "", titleName: selectedTitle?.original_name ?? selectedTitle?.original_title ?? ""))
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     private func configureNavBar(){
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)

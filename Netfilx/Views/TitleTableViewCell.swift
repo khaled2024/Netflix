@@ -10,7 +10,7 @@ import UIKit
 class TitleTableViewCell: UITableViewCell {
     
     static let identifer = "UpcomingTableViewCell"
-    
+
     private let playBtn: UIButton = {
         let btn = UIButton()
         let imageBtn = UIImage(systemName: "play.circle" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -74,8 +74,6 @@ class TitleTableViewCell: UITableViewCell {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterUrl)")else{return}
         self.posterImageView.sd_setImage(with: url, completed: nil)
         self.titleLable.text = model.titleName
-        
-        
-        
     }
 }
+

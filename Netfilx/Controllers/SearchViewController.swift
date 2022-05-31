@@ -75,15 +75,38 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let titleName = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title else {return}
+        ApiCaller.shared.getMovie(with: titleName + "trailer" ) {[weak self] result in
+            switch result{
+            case .success(let video):
+                let title = self?.titles[indexPath.row]
+                guard let titleOverView = title?.overview else{return}
+                let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: video, overTitle: titleOverView)
+                DispatchQueue.main.async {
+                    let vc = TitlePreviewViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                    vc.configure(with: viewModel)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+    }
     
     
 }
-extension SearchViewController: UISearchResultsUpdating{
+extension SearchViewController: UISearchResultsUpdating , SearchResultViewControllerDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         guard let query = searchBar.text ,
               !query.trimmingCharacters(in: .whitespaces).isEmpty, query.trimmingCharacters(in: .whitespaces).count >= 3,
-                    let resultController = searchController.searchResultsController as? SearchResultViewController else{return}
+              let resultController = searchController.searchResultsController as? SearchResultViewController else{return}
+        resultController.delegate = self
         ApiCaller.shared.search(with: query) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -94,7 +117,14 @@ extension SearchViewController: UISearchResultsUpdating{
                     print(error.localizedDescription)
                 }
             }
-           
+            
+        }
+    }
+    func SearchResultViewControllerDelegateTapped(viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async {
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
