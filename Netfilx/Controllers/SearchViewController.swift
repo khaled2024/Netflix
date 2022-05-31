@@ -12,9 +12,8 @@ class SearchViewController: UIViewController {
     //MARK: - var & outlet
     private var titles : [Title] = [Title]()
     private let searchTableView: UITableView = {
-        
         let tableView = UITableView()
-        tableView.register(UpcomingTableViewCell.self, forCellReuseIdentifier: UpcomingTableViewCell.identifer)
+        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifer)
         return tableView
     }()
     private let searchController : UISearchController = {
@@ -58,7 +57,6 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
 }
 //MARK: - extensins
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
@@ -67,7 +65,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingTableViewCell.identifer, for: indexPath)as? UpcomingTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifer, for: indexPath)as? TitleTableViewCell else{
             return UITableViewCell()
         }
         let title = titles[indexPath.row]
@@ -99,6 +97,4 @@ extension SearchViewController: UISearchResultsUpdating{
            
         }
     }
-    
-    
 }

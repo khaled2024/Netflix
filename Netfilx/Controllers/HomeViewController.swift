@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
         configureNavBar()
         let headerView = HeroHeaderUiView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         HomeFeedTable.tableHeaderView = headerView
+        
+      
     }
     
     override func viewDidLayoutSubviews() {

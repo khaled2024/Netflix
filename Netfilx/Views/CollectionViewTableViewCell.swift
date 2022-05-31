@@ -8,7 +8,7 @@
 import UIKit
 
 class CollectionViewTableViewCell: UITableViewCell {
-
+    
     //MARK: - vars & outlets
     static let identifier = "CollectionViewTableViewCell"
     private var titles: [Title] = [Title]()
@@ -28,7 +28,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
     required init(coder: NSCoder) {
         fatalError()
     }
@@ -57,5 +57,17 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate , UICollectionVi
         guard let model = titles[indexPath.row].poster_path else{return UICollectionViewCell()}
         cell.configure(with: model)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let titleName = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title else {return}
+        ApiCaller.shared.getMovie(with: titleName + "trailer" ) { result in
+            switch result{
+            case .success(let video):
+                print(video.id)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
