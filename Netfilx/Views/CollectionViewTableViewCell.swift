@@ -7,11 +7,17 @@
 
 import UIKit
 
+
+protocol CollectionViewTableViewCellDelegate: AnyObject {
+    func CollectionViewTableViewCelltapped(cell: CollectionViewTableViewCell , viewModel: TitlePreviewViewModel)
+}
 class CollectionViewTableViewCell: UITableViewCell {
     
     //MARK: - vars & outlets
     static let identifier = "CollectionViewTableViewCell"
     private var titles: [Title] = [Title]()
+    weak var delegate: CollectionViewTableViewCellDelegate?
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -27,6 +33,8 @@ class CollectionViewTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
     }
     
     required init(coder: NSCoder) {
@@ -61,10 +69,14 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate , UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard let titleName = titles[indexPath.row].original_name ?? titles[indexPath.row].original_title else {return}
-        ApiCaller.shared.getMovie(with: titleName + "trailer" ) { result in
+        ApiCaller.shared.getMovie(with: titleName + "trailer" ) {[weak self] result in
             switch result{
             case .success(let video):
-                print(video.id)
+                let title = self?.titles[indexPath.row]
+                guard let titleOverView = title?.overview else{return}
+                guard let strongSelf = self else{return}
+                let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: video, overTitle: titleOverView)
+                self?.delegate?.CollectionViewTableViewCelltapped(cell: strongSelf, viewModel: viewModel )
             case .failure(let error):
                 print(error.localizedDescription)
             }

@@ -6,15 +6,7 @@
 //
 
 import Foundation
-/*
- items =     (
-             {
-         etag = eFcHWsmBfp9jlj7SZcHtaNAk9Rk;
-         id =             {
-             kind = "youtube#video";
-             videoId = "drtIAeuyq_E";
-         };
- */
+
 
 struct YoutubeResponse: Codable{
     let items: [VideoElement]
