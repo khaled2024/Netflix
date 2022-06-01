@@ -51,13 +51,23 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+    func downloadTitleAt(with indexPath: IndexPath){
+     let title = titles[indexPath.row]
+        DataPersistenceManager.shared.downloadTitle(with: title) { result in
+            switch result{
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 //MARK: - extensions
 extension CollectionViewTableViewCell: UICollectionViewDelegate , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath)as? TitleCollectionViewCell else{
             return UICollectionViewCell()
@@ -81,5 +91,15 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate , UICollectionVi
                 print(error.localizedDescription)
             }
         }
+    }
+    // 3D touch for cell item indexPath
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) {[weak self] _ in
+            let downloadAction = UIAction(title: "Download", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                self?.downloadTitleAt(with: indexPath)
+            }
+            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
+        }
+        return config
     }
 }

@@ -10,6 +10,8 @@
 		EA1A7B7F2846497B0019FC69 /* YoutubeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A7B7E2846497B0019FC69 /* YoutubeResponse.swift */; };
 		EA1A7B8128464F410019FC69 /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A7B8028464F410019FC69 /* TitlePreviewViewController.swift */; };
 		EA1A7B83284654FF0019FC69 /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A7B82284654FF0019FC69 /* TitlePreviewViewModel.swift */; };
+		EA26F1E62847A88C003833E8 /* NetflixModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA26F1E42847A88C003833E8 /* NetflixModel.xcdatamodeld */; };
+		EA26F1E82847AA73003833E8 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA26F1E72847AA73003833E8 /* DataPersistenceManager.swift */; };
 		EA545A6128402A7E00223D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A6028402A7E00223D61 /* AppDelegate.swift */; };
 		EA545A6328402A7E00223D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A6228402A7E00223D61 /* SceneDelegate.swift */; };
 		EA545A6528402A7E00223D61 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA545A6428402A7E00223D61 /* MainTabBarViewController.swift */; };
@@ -36,6 +38,8 @@
 		EA1A7B7E2846497B0019FC69 /* YoutubeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeResponse.swift; sourceTree = "<group>"; };
 		EA1A7B8028464F410019FC69 /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		EA1A7B82284654FF0019FC69 /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
+		EA26F1E52847A88C003833E8 /* NetflixModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetflixModel.xcdatamodel; sourceTree = "<group>"; };
+		EA26F1E72847AA73003833E8 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		EA545A5D28402A7E00223D61 /* Netfilx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netfilx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA545A6028402A7E00223D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA545A6228402A7E00223D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				EA545A6928402A8000223D61 /* Assets.xcassets */,
 				EA545A6B28402A8000223D61 /* LaunchScreen.storyboard */,
 				EA545A6E28402A8000223D61 /* Info.plist */,
+				EA26F1E42847A88C003833E8 /* NetflixModel.xcdatamodeld */,
 			);
 			path = Netfilx;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EA93D16828425B6700484904 /* ApiCaller.swift */,
+				EA26F1E72847AA73003833E8 /* DataPersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				EA545A7A28402FAF00223D61 /* SearchViewController.swift in Sources */,
 				EA7822BF2843A31F003629C5 /* TitleCollectionViewCell.swift in Sources */,
 				EA545A6528402A7E00223D61 /* MainTabBarViewController.swift in Sources */,
+				EA26F1E82847AA73003833E8 /* DataPersistenceManager.swift in Sources */,
 				EA7822C62843C06D003629C5 /* TitleTableViewCell.swift in Sources */,
 				EA545A83284036E500223D61 /* CollectionViewTableViewCell.swift in Sources */,
 				EA545A7C28402FBB00223D61 /* DownloadsViewController.swift in Sources */,
@@ -273,6 +280,7 @@
 				EA1A7B83284654FF0019FC69 /* TitlePreviewViewModel.swift in Sources */,
 				EA1A7B7F2846497B0019FC69 /* YoutubeResponse.swift in Sources */,
 				EA1A7B8128464F410019FC69 /* TitlePreviewViewController.swift in Sources */,
+				EA26F1E62847A88C003833E8 /* NetflixModel.xcdatamodeld in Sources */,
 				EA93D16B2842615300484904 /* Title.swift in Sources */,
 				EA569B572844F0F000FA86E0 /* SearchResultViewController.swift in Sources */,
 				EA93D16928425B6700484904 /* ApiCaller.swift in Sources */,
@@ -420,6 +428,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,6 +515,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EA26F1E42847A88C003833E8 /* NetflixModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EA26F1E52847A88C003833E8 /* NetflixModel.xcdatamodel */,
+			);
+			currentVersion = EA26F1E52847A88C003833E8 /* NetflixModel.xcdatamodel */;
+			path = NetflixModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EA545A5528402A7D00223D61 /* Project object */;
 }
